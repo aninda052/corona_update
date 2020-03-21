@@ -25,7 +25,7 @@ SECRET_KEY = '*5q$shubdzkm3kv&zja#ga^by(!0bp+22z7sc1fhre47&vss(h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bdcoronaupdate.herokuapp.com','0.0.0.0']
+ALLOWED_HOSTS = ['bdcoronaupdate.herokuapp.com','0.0.0.0','127.0.0.1']
 
 
 # Application definition
