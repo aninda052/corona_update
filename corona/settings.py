@@ -25,7 +25,7 @@ SECRET_KEY = '*5q$shubdzkm3kv&zja#ga^by(!0bp+22z7sc1fhre47&vss(h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bdcoronaupdate.herokuapp.com']
+ALLOWED_HOSTS = ['bdcoronaupdate.herokuapp.com','0.0.0.0']
 
 
 # Application definition
@@ -128,3 +128,4 @@ STATIC_ROOT = os.path.join(BASE_DIR,'corona/assets')
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# django_heroku.settings(locals())
