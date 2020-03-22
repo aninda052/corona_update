@@ -8,66 +8,10 @@ import plotly.graph_objects as go
 from plotly.offline import plot
 from pandas import DataFrame
 import csv
-
-
-def get_news_from_prothomAlo ():
-
-    basePage = 'https://service.prothomalo.com/commentary/index.php'
-    response = requests.get(basePage)
-    soup = BeautifulSoup(response.content, "html.parser")
-
-    all_news = soup.find_all(href=re.compile(r'[/]([a-z]|[A-Z])\w+'))
-    all_news_link = [(news.get_text().strip(), news.get('href')) for news in all_news]
-
-    if len(all_news_link) > 5:
-        all_news_link = all_news_link[:5]
-
-    return all_news_link
-
-def get_news_from_ittefak ():
-    basePage = 'https://www.ittefaq.com.bd/all-news/covid19-update/?pg=1'
-
-    response = requests.get(basePage)
-    soup = BeautifulSoup(response.content, "html.parser")
-    _soup = soup.find_all('div', {'class': ['all_news_content_block']})
-
-    all_news = _soup[0].find_all(href=re.compile(r'[/]([a-z]|[A-Z])\w+'))
-    all_news_link = [(news.get_text().strip(), news.get('href')) for news in all_news]
-
-    if len(all_news_link) > 5:
-        all_news_link = all_news_link[:5]
-
-    return all_news_link
-
-def get_news_from_dailyStar():
-    basePage = 'https://www.thedailystar.net/bangla/%E0%A6%B6%E0%A7%80%E0%A6%B0%E0%A7%8D%E0%A6%B7-%E0%A6%96%E0%A6%AC%E0%A6%B0'
-
-    response = requests.get(basePage)
-    soup = BeautifulSoup(response.content, "html.parser")
-    _soup = soup.find_all('div', {'class': ['two-50']})
-    all_news = _soup[0].find_all(href=re.compile(r'[/]([a-z]|[A-Z])\w+'))
-    all_news_link = [(news.get_text().strip(), news.get('href')) for news in all_news if len(news.get_text().strip()) >3]
+from .models import news_paper
 
 
 
-    if len(all_news_link) > 5:
-        all_news_link = all_news_link[:5]
-
-    return all_news_link
-
-def get_news_from_jugantor():
-    basePage = 'https://www.jugantor.com/country-news/290844/%E0%A6%AE%E0%A6%BE%E0%A6%A6%E0%A6%BE%E0%A6%B0%E0%A7%80%E0%A6%AA%E0%A7%81%E0%A6%B0%E0%A7%87%E0%A6%B0-%E0%A6%B6%E0%A6%BF%E0%A6%AC%E0%A6%9A%E0%A6%B0-%E0%A6%B2%E0%A6%95%E0%A6%A1%E0%A6%BE%E0%A6%89%E0%A6%A8'
-
-    response = requests.get(basePage)
-    soup = BeautifulSoup(response.content, "html.parser")
-    all_news = soup.find_all('div', {'class': 'inner-box pull-left'})
-
-    all_news_link = [(news.find('a').get_text().strip(), news.find('a').get('href')) for news in all_news]
-
-    if len(all_news_link) > 5:
-        all_news_link = all_news_link[:5]
-
-    return all_news_link
 
 def get_world_data():
     import os
@@ -144,17 +88,21 @@ def get_heat_map():
 def home_page(request):
 
     ''' Prothom Alo '''
-    # prothom_alo_all_news_link = get_news_from_prothomAlo()
-    # ittefak_all_news_link = get_news_from_ittefak()
-    # jugantor_all_news_link = get_news_from_jugantor()
-    # dailyStar_all_news_link = get_news_from_dailyStar()
+
+    prothom_alo_all_news_link = news_paper.objects.filter(news_paper_name = 'prothom alo').values( 'news_title', 'news_link', 'publication_time')[:5]
+    # print(prothom_alo_all_news_link)
+    # ittefak_all_news_link = news_paper.object.filter(news_paper_name = 'ittefak')[:5]
+    # jugantor_all_news_link = news_paper.object.filter(news_paper_name = 'jugantor')[:5]
+    # dailyStar_all_news_link = news_paper.object.filter(news_paper_name = 'daily star')[:5]
     #
     # heat_map = get_heat_map()
 
 
 
 
-    return render(request, 'index.html')
+    return render(request, 'index.html',{
+        'prothom_alo_all_news_link' : prothom_alo_all_news_link
+    })
 
     # return render(request, 'home.html',{
     #     'prothom_alo_all_news_link' : prothom_alo_all_news_link,

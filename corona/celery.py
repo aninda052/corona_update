@@ -17,19 +17,7 @@ app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)
 
 
-from celery.task import periodic_task
-from celery.schedules import crontab
-from celery.utils.log import get_task_logger
 
-logger = get_task_logger(__name__)
-
-
-
-
-
-@periodic_task(name="debug_task ",run_every=crontab(minute='*/2'))
-def debug_task():
-    logger.info('Celery Working')
 
 
 
