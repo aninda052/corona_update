@@ -144,22 +144,23 @@ def get_heat_map():
 def home_page(request):
 
     ''' Prothom Alo '''
-    prothom_alo_all_news_link = get_news_from_prothomAlo()
-    ittefak_all_news_link = get_news_from_ittefak()
-    jugantor_all_news_link = get_news_from_jugantor()
-    dailyStar_all_news_link = get_news_from_dailyStar()
-
-    heat_map = get_heat_map()
-
-
+    # prothom_alo_all_news_link = get_news_from_prothomAlo()
+    # ittefak_all_news_link = get_news_from_ittefak()
+    # jugantor_all_news_link = get_news_from_jugantor()
+    # dailyStar_all_news_link = get_news_from_dailyStar()
+    #
+    # heat_map = get_heat_map()
 
 
 
-    return render(request, 'home.html',{
-        'prothom_alo_all_news_link' : prothom_alo_all_news_link,
-        'ittefak_all_news_link' : ittefak_all_news_link,
-        'jugantor_all_news_link' : jugantor_all_news_link,
-        'dailyStar_all_news_link' : dailyStar_all_news_link,
-        'heat_map': plot(heat_map, output_type='div',
-                    include_plotlyjs=False, show_link=False, link_text=""),
-    })
+
+    return render(request, 'index.html')
+
+    # return render(request, 'home.html',{
+    #     'prothom_alo_all_news_link' : prothom_alo_all_news_link,
+    #     'ittefak_all_news_link' : ittefak_all_news_link,
+    #     'jugantor_all_news_link' : jugantor_all_news_link,
+    #     'dailyStar_all_news_link' : dailyStar_all_news_link,
+    #     'heat_map': plot(heat_map, output_type='div',
+    #                 include_plotlyjs=False, show_link=False, link_text=""),
+    # })
