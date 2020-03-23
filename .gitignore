@@ -1,2 +1,3 @@
 corona/__pycache__/*
 celerybeat-schedule*
+celery_task/__pycache__/*

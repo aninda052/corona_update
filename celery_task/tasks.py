@@ -9,12 +9,13 @@ logger = get_task_logger(__name__)
 
 
 
-@periodic_task(name="collect_news ",run_every=crontab(minute='*/2'))
+@periodic_task(name="collect_news ",run_every=crontab(minute='*/5'))
 def collect_news():
     logger.info('News Collecting')
     data_collection.get_news_from_prothomAlo()
-    # data_collection.get_news_from_ittefak()
-    # data_collection.get_news_from_jugantor()
+    data_collection.get_news_from_ittefak()
+    data_collection.get_news_from_jugantor()
+    data_collection.get_news_from_banglaNews24()
     # data_collection.get_news_from_dailyStar()
 
 # @periodic_task(name="collect_news ",run_every=crontab(minute='*/2'))

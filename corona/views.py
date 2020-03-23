@@ -89,10 +89,10 @@ def home_page(request):
 
     ''' Prothom Alo '''
 
-    prothom_alo_all_news_link = news_paper.objects.filter(news_paper_name = 'prothom alo').values( 'news_title', 'news_link', 'publication_time')[:5]
-    # print(prothom_alo_all_news_link)
-    # ittefak_all_news_link = news_paper.object.filter(news_paper_name = 'ittefak')[:5]
-    # jugantor_all_news_link = news_paper.object.filter(news_paper_name = 'jugantor')[:5]
+    prothom_alo_all_news_link = news_paper.objects.filter(news_paper_name = 'prothomAlo').values( 'news_title', 'news_link', 'publication_time').order_by('-publication_time')[:5]
+    ittefak_all_news_link = news_paper.objects.filter(news_paper_name = 'ittefak').values( 'news_title', 'news_link', 'publication_time').order_by('-publication_time')[:5]
+    jugantor_all_news_link = news_paper.objects.filter(news_paper_name = 'jugantor').values( 'news_title', 'news_link', 'publication_time').order_by('-publication_time')[:5]
+    banglaNews24_all_news_link = news_paper.objects.filter(news_paper_name = 'banglaNews24').values( 'news_title', 'news_link', 'publication_time').order_by('-publication_time')[:5]
     # dailyStar_all_news_link = news_paper.object.filter(news_paper_name = 'daily star')[:5]
     #
     # heat_map = get_heat_map()
@@ -100,8 +100,11 @@ def home_page(request):
 
 
 
-    return render(request, 'index.html',{
-        'prothom_alo_all_news_link' : prothom_alo_all_news_link
+    return render(request, 'home.html',{
+        'prothom_alo_all_news_link' : prothom_alo_all_news_link,
+        'ittefak_all_news_link' : ittefak_all_news_link,
+        'jugantor_all_news_link' : jugantor_all_news_link,
+        'banglaNews24_all_news_link' : banglaNews24_all_news_link,
     })
 
     # return render(request, 'home.html',{

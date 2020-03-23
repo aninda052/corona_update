@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 
 
@@ -11,10 +12,10 @@ class news_paper(models.Model):
     news_link = models.CharField(max_length=500)
     publication_time =models.CharField(max_length=30)
 
-    data_fetching_time = models.DateTimeField()
+    data_fetching_time = models.DateTimeField(default=datetime.now())
 
     def __str__(self):
-        return 'success'
+        return self.news_title
 
 
 
