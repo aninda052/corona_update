@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import re
-from corona.models import news_paper
+from .models import news_paper
 from datetime import datetime
 
 def insert_data(paper_name, data):
@@ -13,7 +13,7 @@ def insert_data(paper_name, data):
         if created:
             paper.news_link = news_link
             paper.publication_time = pulication_time
-            paper.data_fetching_time = datetime.now()
+
             paper.save()
 
 def get_news_from_prothomAlo ():

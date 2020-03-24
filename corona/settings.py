@@ -37,9 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_celery_results',
-    'celery_task',
-    'corona',
+    # 'django_celery_results',
+    'news.apps.NewsConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +57,7 @@ ROOT_URLCONF = 'corona.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['corona/template'],
+        'DIRS': ['news/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,24 +103,23 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        # 'LOCATION': 'my_cache_table',
-    }
-}
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#
+#     }
+# }
+#
+#
+# BROKER_POOL_LIMIT = 3
+# CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_CACHE_BACKEND = 'django-cache'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TIMEZONE = 'Asia/Dhaka'
 
-# BROKER_URL = 'django://'
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_CACHE_BACKEND = 'django-cache'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Dhaka'
 
-
-# result_backend = 'cache+memcached://127.0.0.1:11211/'
-# cache_backend = 'memory'
 
 
 # Internationalization
@@ -144,9 +142,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'corona/static')
+    os.path.join(BASE_DIR, 'news/static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'corona/assets')
+STATIC_ROOT = os.path.join(BASE_DIR,'news/assets')
 
 
 #  Add configuration for static files storage using whitenoise

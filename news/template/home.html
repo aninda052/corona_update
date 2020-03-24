@@ -27,80 +27,84 @@
             <div class="row">
 
 
-                <div class="col-lg-3">
+                <div class="col-lg-3" >
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                         <div class="d-flex features-icons-icon"><img src="{% static 'img/Prothom-Alo.png' %}" style="height: 60%;"></div>
 
 <!--                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>-->
                     </div>
+                    <div  style="height: 750px;overflow: scroll;">
+                        {%  for news in prothom_alo_all_news_link %}
+                            <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);height: 135px; padding: 15px 20px; border-radius: 8px">
+                                <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
+                                    <p><strong>{{ news.news_title}}</strong></p>
+                                    <p><small>{{ news.publication_time}}</small></p>
 
-                    {%  for news in prothom_alo_all_news_link %}
-                        <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);; padding: 15px 20px; border-radius: 8px">
-                            <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
-                                <p><strong>{{ news.news_title}}</strong></p>
-                                <p><small>{{ news.publication_time}}</small></p>
-<!--                                <p><i>thedailystar.net</i></p>-->
-                            </a>
-                        </div>
-                    {% endfor %}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
 
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3" >
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                         <div class="d-flex features-icons-icon"><img src="{% static 'img/ittefaq.png' %}" style="height: 50%;width: 95%;"></div>
 
 <!--                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>-->
                     </div>
+                    <div  style="height: 750px;overflow: scroll;">
 
-                    {%  for news in ittefak_all_news_link %}
-                        <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);; padding: 15px 20px; border-radius: 8px">
-                            <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
-                                <p><strong>{{ news.news_title}}</strong></p>
-                                <p><small>{{ news.publication_time}}</small></p>
-<!--                                <p><i>thedailystar.net</i></p>-->
-                            </a>
-                        </div>
-                    {% endfor %}
+                        {%  for news in ittefak_all_news_link %}
+                            <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);height: 135px; padding: 15px 20px; border-radius: 8px">
+                                <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
+                                    <p><strong>{{ news.news_title}}</strong></p>
+                                    <p><small>{{ news.publication_time}}</small></p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
 
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3" >
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
                         <div class="d-flex features-icons-icon"><img src="{% static 'img/jugantor.png' %}" style="height: 45%;width: 85%;"></div>
 
 <!--                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>-->
                     </div>
-
-                    {%  for news in jugantor_all_news_link %}
-                        <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);; padding: 15px 20px; border-radius: 8px">
-                            <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
-                                <p><strong>{{ news.news_title}}</strong></p>
-                                <p><small>{{ news.publication_time}}</small></p>
-<!--                                <p><i>thedailystar.net</i></p>-->
-                            </a>
-                        </div>
-                    {% endfor %}
+                    <div  style="height: 750px;overflow: scroll;">
+                        {%  for news in jugantor_all_news_link %}
+                            <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);height: 135px; padding: 15px 20px; border-radius: 8px">
+                                <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
+                                    <p><strong>{{ news.news_title}}</strong></p>
+                                    <p><small>{{ news.publication_time}}</small></p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
 
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3" >
                     <div class="mx-auto features-icons-item mb-5 mb-lg-0 mb-lg-3">
-                        <div class="d-flex features-icons-icon"><img src="{% static 'img/banglanews.jpg' %}" style="height: 45%;width: 85%;"></div>
+                        <div class="d-flex features-icons-icon"><img src="{% static 'img/banglanews.jpg' %}" ></div>
 
 <!--                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>-->
                     </div>
+                    <div  style="height: 750px;overflow: scroll;">
 
-                    {%  for news in banglaNews24_all_news_link %}
-                        <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);; padding: 15px 20px; border-radius: 8px">
-                            <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
-                                <p><strong>{{ news.news_title}}</strong></p>
-                                <p><small>{{ news.publication_time}}</small></p>
-<!--                                <p><i>thedailystar.net</i></p>-->
-                            </a>
-                        </div>
-                    {% endfor %}
+                        {%  for news in banglaNews24_all_news_link %}
+                            <div style="text-align: left; margin-top: 10px; background-color: #ffffff; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          transition: all 0.3s cubic-bezier(.25,.8,.25,1);height: 135px; padding: 15px 20px; border-radius: 8px">
+                                <a href="{{ news.news_link}}" target="_blank" style="color: #000000">
+                                    <p><strong>{{ news.news_title}}</strong></p>
+                                    <p><small>{{ news.publication_time}}</small></p>
+    <!--                                <p><i>thedailystar.net</i></p>-->
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
 
                 </div>
             </div>

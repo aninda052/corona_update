@@ -1,10 +1,11 @@
 from django.db import models
-from datetime import datetime
+from  django.utils.timezone import now
 
 
 
 
-## PostGresSQL DataBase Starts ##
+
+
 
 class news_paper(models.Model):
     news_paper_name = models.CharField(max_length=50)
@@ -12,7 +13,7 @@ class news_paper(models.Model):
     news_link = models.CharField(max_length=500)
     publication_time =models.CharField(max_length=30)
 
-    data_fetching_time = models.DateTimeField(default=datetime.now())
+    data_fetching_time = models.DateTimeField(default=now)
 
     def __str__(self):
         return self.news_title
