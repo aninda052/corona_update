@@ -2,12 +2,14 @@ amqp==2.5.2
 anyjson==0.3.3
 APScheduler==3.6.3
 asgiref==3.2.5
+bangla==0.0.2
 beautifulsoup4==4.8.2
 billiard==3.6.3.0
 bs4==0.0.1
 certifi==2019.11.28
 chardet==3.0.4
 Django==3.0.4
+djangorestframework==3.11.0
 get==2019.4.13
 gunicorn==20.0.4
 idna==2.9
